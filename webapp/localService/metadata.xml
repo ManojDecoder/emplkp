@@ -1,0 +1,54 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZPIC_EMP_PROFILE_SRV" xml:lang="fr" sap:schema-version="1">
+            <EntityType Name="EmployeeInfo" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeNumber"/>
+                </Key>
+                <Property Name="EmployeeNumber" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Matricule"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Nom sal./cand."/>
+                <Property Name="ContentType" Type="Edm.String" MaxLength="30" sap:label="30 caractères"/>
+                <Property Name="PhotoUrl" Type="Edm.Binary"/>
+                <Property Name="Phone" Type="Edm.String" MaxLength="241" sap:label="Adresse e-mail"/>
+                <Property Name="Email" Type="Edm.String" MaxLength="241" sap:label="Adresse e-mail"/>
+                <Property Name="OrgunitText" Type="Edm.String" MaxLength="25" sap:label="Désign. ent.organis."/>
+                <Property Name="PositionText" Type="Edm.String" MaxLength="25" sap:label="Dés. synth. du poste"/>
+                <Property Name="BuildingNo" Type="Edm.String" MaxLength="6" sap:label="Numéro bâtiment"/>
+                <Property Name="RoomNo" Type="Edm.String" MaxLength="6" sap:label="N° de bureau"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="Localité"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="50" sap:label="Désign. longue"/>
+                <Property Name="Localtime" Type="Edm.DateTime" Precision="7" sap:label="Horodatage"/>
+            </EntityType>
+            <EntityType Name="SearchResult" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SearchString"/>
+                </Key>
+                <Property Name="SearchString" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Char"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="40" sap:label="Nom sal./cand."/>
+                <Property Name="PositionText" Type="Edm.String" MaxLength="25" sap:label="Dés. synth. du poste"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:label="Localité"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="50" sap:label="Désign. longue"/>
+                <Property Name="OfficeEmail" Type="Edm.String" MaxLength="241" sap:label="Adresse e-mail"/>
+                <Property Name="OfficeTelephone" Type="Edm.String" MaxLength="40" sap:label="Char"/>
+                <Property Name="EmployeeNumber" Type="Edm.String" MaxLength="8" sap:label="Matricule"/>
+                <Property Name="OfficeLocation" Type="Edm.String" MaxLength="30" sap:label="30 caractères"/>
+                <Property Name="Company" Type="Edm.String" MaxLength="4" sap:label="Société"/>
+                <Property Name="CompanyTxt" Type="Edm.String" MaxLength="25" sap:label="Nom de société"/>
+                <Property Name="SubDomain" Type="Edm.String" MaxLength="4" sap:label="Ss dom. pers."/>
+                <Property Name="SubDomainTxt" Type="Edm.String" MaxLength="15" sap:label="Txt SsDomPers"/>
+            </EntityType>
+            <EntityContainer Name="ZPIC_EMP_PROFILE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EmployeeInfoSet" EntityType="ZPIC_EMP_PROFILE_SRV.EmployeeInfo" sap:content-version="1"/>
+                <EntitySet Name="SearchResultSet" EntityType="ZPIC_EMP_PROFILE_SRV.SearchResult" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZPIC_EMP_PROFILE_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZPIC_EMP_PROFILE_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
